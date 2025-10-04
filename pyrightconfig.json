@@ -1,0 +1,16 @@
+{
+  "include": ["custom_components", "tests"],
+  "typeCheckingMode": "strict",
+  "pythonVersion": "3.13",
+  "venvPath": ".",
+  "reportMissingTypeStubs": "warning",
+  "reportPrivateUsage": "warning",
+  "reportUnknownMemberType": "warning",
+  "reportUnknownArgumentType": "warning",
+  "executionEnvironments": [
+    {
+      "root": "custom_components",
+      "extraPaths": ["custom_components"]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[project]
+name = "boiler-smart-thermostat"
+version = "0.1.0"
+description = "Home assistant integration to implement smart thermostat control for boilers"
+readme = "README.md"
+authors = [
+    { name = "Cameron Harris", email = "274923+corruptmem@users.noreply.github.com" }
+]
+requires-python = "~=3.13.7"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "homeassistant>=2025.10.1",
+    "pyright>=1.1.406",
+    "ruff>=0.13.3",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+lint.select = ["E", "F", "I", "UP", "B", "ASYNC", "A", "C4"]
+lint.ignore = [
+  "E501", # line length—ruff format handles wrapping
+]
+lint.per-file-ignores = { "tests/*" = ["S101"] }
+format.quote-style = "double"
+
+# If you prefer pyproject-based includes/excludes:
+include = ["custom_components", "tests", "pyproject.toml"]

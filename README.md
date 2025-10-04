@@ -1,0 +1,1 @@
+# Boiler smart thermostat helper for home assistant

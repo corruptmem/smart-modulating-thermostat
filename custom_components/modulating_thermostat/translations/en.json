@@ -1,0 +1,34 @@
+{
+  "config": {
+    "flow_title": "Modulating Thermostat",
+    "step": {
+      "user": {
+        "title": "Controller",
+        "description": "Configure sensors and base behaviour for the modulating thermostat."
+      },
+      "zone": {
+        "title": "Zone",
+        "description": "Add a heating zone with weighting, sensor and optional actuator."
+      }
+    },
+    "error": {
+      "zone_id_exists": "Zone ID already used.",
+      "max_must_exceed_min": "Maximum must be greater than minimum."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Adjust behaviour",
+        "description": "Tune aggressiveness and weather compensation without editing zones."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "target_flow": {
+        "name": "Target flow temperature"
+      }
+    }
+  }
+}

@@ -13,18 +13,30 @@ dependencies = []
 dev = [
     "homeassistant>=2025.10.1",
     "pyright>=1.1.406",
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=5.0.0",
     "ruff>=0.13.3",
 ]
 
 [tool.ruff]
-target-version = "py313"
-line-length = 100
-lint.select = ["E", "F", "I", "UP", "B", "ASYNC", "A", "C4"]
-lint.ignore = [
-  "E501", # line length—ruff format handles wrapping
-]
-lint.per-file-ignores = { "tests/*" = ["S101"] }
-format.quote-style = "double"
 
-# If you prefer pyproject-based includes/excludes:
-include = ["custom_components", "tests", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=custom_components.modulating_thermostat --cov-report=term-missing"
+testpaths = [
+    "tests"
+]
+
+
+[tool.coverage.run]
+source = [
+    "custom_components.modulating_thermostat"
+]
+omit = [
+    "custom_components/modulating_thermostat/__main__.py",
+    "custom_components/modulating_thermostat/config_flow.py",
+    "custom_components/modulating_thermostat/number.py",
+    "custom_components/modulating_thermostat/sensor.py",
+    "custom_components/modulating_thermostat/__init__.py"
+]

@@ -1,0 +1,11 @@
+{
+  "domain": "modulating_thermostat",
+  "name": "Modulating Thermostat",
+  "version": "0.1.0",
+  "documentation": "https://github.com/corruptmem/boiler-smart-thermostat",
+  "dependencies": [],
+  "codeowners": ["@corruptmem"],
+  "integration_type": "hub",
+  "iot_class": "local_polling",
+  "requirements": []
+}

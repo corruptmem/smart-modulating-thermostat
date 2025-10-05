@@ -1,7 +1,7 @@
 # Modulating Thermostat Integration for Home Assistant
 
 >  [!IMPORTANT]
-> This project is almost entirely vibe-coded to my specifications with gpt-5-codex, however I am using it to control my boiler with success, though it's still not optimal. And the AI didn't quite follow my instructions... probably for the best.
+> BUYER BEWARE: **This project is almost entirely vibe-coded** to my specifications with gpt-5-codex, however I am using it to control my boiler with success, though it's still not optimal. And the AI didn't quite follow my instructions... probably for the best.
 
 My heating system is: 
 * a Worcester Bosch Greenstar 34CDi Classic Combi gas boiler

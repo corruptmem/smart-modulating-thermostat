@@ -1,5 +1,26 @@
 # Modulating Thermostat Integration for Home Assistant
 
+>  [!IMPORTANT]
+> This project is almost entirely vibe-coded to my specifications with gpt-5-codex, however I am using it to control my boiler with success, though it's still not optimal. And the AI didn't quite follow my instructions... probably for the best.
+
+My heating system is: 
+* a Worcester Bosch Greenstar 34CDi Classic Combi gas boiler
+* a [BBQKees EMS-ESP Gateway E32 V2](https://bbqkees-electronics.nl/product/gateway-e32-v2-ethernet-wifi-edition-v2/) connected to its EMS bus
+* one or more [SwitchBot Indoor-Outdoor Thermohygrometers](https://uk.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer) in every zone
+* a [Shelly BLU TRV](https://shellystore.co.uk/product/shelly-blu-trv/) on each radiator (except the bathrooms, where the radiators currently function as an [external bypass](https://www.reddit.com/r/DIYUK/comments/1fvtgja/do_i_need_a_bypass_valve_for_my_smart_central/)) configured in valve actuation mode (i.e. 0-100% rather than thermostatic)
+
+Rather than pointing this integration at the underlying entities, I created helper entities that group all the thermohygrometers for each zone and define the target set points, mainly for debugging, then use automations to get data in and out of them. At some point I'll probably change this to be more direct.
+
+Future plans:
+* A more advanced control system, such as MPC or even a NN.
+* Support for air conditioning, humidifiers, dehumidifers, heat pumps and electric heating.
+* Add a universal thermal comfort model that take into account seasonality rather than just designating 21°C 50% RH as ideal.
+* Automatic thermostat adjustment using occupancy detection and direction of travel sensors.
+* Using dynamic energy prices and appliance efficiency measures to determine the most optimal way of reaching the target temperature/humidity envelope.
+* Learn how the users' preferences vary from the standard assumptions, which may be a result of individual variance, activity levels, or local thermal discomfort caused by mean radiant temperature or other factors.
+
+## About this project
+
 This project provides a Home Assistant custom integration that implements a demand-weighted, multi-zone, weather-compensated controller for boilers (or other hydronic heat sources). It marshals temperature and setpoint entities from any number of zones, produces a target flow temperature, and exposes additional telemetry—including zone-level actuator targets—so you can drive valves/TRVs and diagnose behaviour without leaving Home Assistant.
 
 - **Precise flow control** – Linear blend of weather-reset curve, per-zone PI controllers, and optional flow-sensor feedback keeps the target as low as possible while still satisfying demand.
